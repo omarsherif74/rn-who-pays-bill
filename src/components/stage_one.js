@@ -54,7 +54,7 @@ const StageOne = () => {
                 fontSize: 30,
               }}
             >
-              Who pays the bill
+              Who pays the bill?
             </Text>
 
             <Input
