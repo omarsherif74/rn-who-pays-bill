@@ -32,8 +32,23 @@ class MyProvider extends Component {
         text2: "You need at least 2 players to play this game",
       });
     } else {
-      this.setState({ stage: 2 });
+      this.setState({ stage: 2 }, () => {
+        this.generateLoser();
+      });
     }
+  };
+
+  generateLoser = () => {
+    const { players } = this.state;
+    const random = Math.floor(Math.random() * players.length);
+    const loser = players[random];
+    this.setState({
+      result: players[Math.floor(Math.random() * players.length)],
+    });
+  };
+
+  resetGame = () => {
+    this.setState({ stage: 1, players: [], result: "" });
   };
 
   render() {
@@ -45,6 +60,8 @@ class MyProvider extends Component {
             addPlayer: this.addPlayerHandler,
             removePlayer: this.removePlayerHandler,
             next: this.nextHandler,
+            getNewLoser: this.generateLoser,
+            resetGame: this.resetGame,
           }}
         >
           {this.props.children}

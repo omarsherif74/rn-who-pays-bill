@@ -48,7 +48,11 @@ const StageOne = () => {
           errors,
         }) => (
           <>
-            <Text>Who pays the bill</Text>
+            <Text
+            style={{
+              fontFamily: 'Pacifico-Regular',
+            }}
+            >Who pays the bill</Text>
 
             <Input
               placeholder="Player name"
