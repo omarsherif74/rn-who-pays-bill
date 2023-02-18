@@ -23,8 +23,14 @@ class MyProvider extends Component {
 
   nextHandler = () => {
     const { players } = this.state;
+
     if (players.length < 2) {
-      Toast.show({});
+      Toast.show({
+        type: "error",
+        position: "bottom",
+        text1: "Sorry",
+        text2: "You need at least 2 players to play this game",
+      });
     } else {
       this.setState({ stage: 2 });
     }
